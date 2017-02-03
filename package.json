@@ -8,7 +8,7 @@
     "build": "./node_modules/.bin/webpack -d",
     "lint": "./node_modules/.bin/eslint app/* server.js; exit 0",
     "start": "nodemon server.js",
-    "knex": "knex"
+    "knex": "./node_modules/.bin/knex"
   },
   "keywords": [],
   "author": "mrjadaml",
