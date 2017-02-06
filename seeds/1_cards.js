@@ -1,7 +1,7 @@
-exports.seed = function (knex) {
-  return knex('cards').del()
+exports.seed = (knex) => {
+  knex('cards').del()
     .then(() => {
-      return knex('cards').insert([{
+      knex('cards').insert([{
         id: 1,
         question: 'What is a Promise?',
         answer: 'A promise represents the value of an asynchronous operation that is not necessarily know at the time of execution.',
@@ -158,6 +158,6 @@ exports.seed = function (knex) {
       }]);
     })
     .then(() => {
-      return knex.raw('SELECT setval(\'cards_id_seq\', (SELECT MAX(id) FROM cards));');
+      knex.raw('SELECT setval(\'cards_id_seq\', (SELECT MAX(id) FROM cards));');
     });
 };

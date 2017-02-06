@@ -1,7 +1,7 @@
-exports.seed = function (knex) {
-  return knex('decks').del()
+exports.seed = (knex) => {
+  knex('decks').del()
     .then(() => {
-      return knex('decks').insert([{
+      knex('decks').insert([{
         id: 1,
         topic: 'Promises & Asynchronous Programming',
         created_at: new Date('2016-06-26 14:26:16 UTC'),
@@ -19,6 +19,6 @@ exports.seed = function (knex) {
       }]);
     })
     .then(() => {
-      return knex.raw('SELECT setval(\'decks_id_seq\', (SELECT MAX(id) FROM decks));');
+      knex.raw('SELECT setval(\'decks_id_seq\', (SELECT MAX(id) FROM decks));');
     });
 };

@@ -1,7 +1,7 @@
-exports.seed = function (knex) {
-  return knex('cards_decks').del()
+exports.seed = (knex) => {
+  knex('cards_decks').del()
     .then(() => {
-      return knex('cards_decks').insert([{
+      knex('cards_decks').insert([{
         id: 1,
         deck_id: 1,
         card_id: 1,
@@ -136,6 +136,6 @@ exports.seed = function (knex) {
       }]);
     })
     .then(() => {
-      return knex.raw('SELECT setval(\'cards_decks_id_seq\', (SELECT MAX(id) FROM cards_decks));');
+      knex.raw('SELECT setval(\'cards_decks_id_seq\', (SELECT MAX(id) FROM cards_decks));');
     });
 };
