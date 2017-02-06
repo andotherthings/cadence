@@ -21,8 +21,6 @@ exports.seed = function (knex) {
       }]);
     })
     .then(() => {
-      return knex.raw(
-        'SELECT setval(\'decks_id_seq\', (SELECT MAX(id) FROM decks));'
-      );
+      return knex.raw('SELECT setval(\'decks_id_seq\', (SELECT MAX(id) FROM decks));');
     });
 };
