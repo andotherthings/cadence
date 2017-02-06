@@ -6,17 +6,17 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('decks').insert([{
         id: 1,
-        topic: "test",
+        topic: "Promises & Asynchronous Programming",
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }, {
         id: 2,
-        topic: "test",
+        topic: "Fundamentals",
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }, {
         id: 3,
-        topic: "test",
+        topic: "HTTP",
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }]);
