@@ -1,5 +1,3 @@
-/* eslint-disable max-len, camelcase */
-
 exports.seed = function (knex) {
   return knex('decks').del()
     .then(() => {
