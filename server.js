@@ -9,9 +9,11 @@ const port = process.env.PORT || 8000;
 const compiler = webpack(config);
 
 const cards = require('./routes/cards');
+const decks = require('./routes/decks');
 
 app.use(bodyParser.json());
 app.use(cards);
+app.use(decks);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath,
