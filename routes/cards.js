@@ -44,11 +44,11 @@ router.patch('/cards/:id', (req, res, next) => {
 
     const updateRow = {};
 
-    for (const key in req.body) {
+    Object.keys(req.body).forEach((key) => {
       if (['question', 'answer', 'resourceUrl'].indexOf(key) !== -1) {
         updateRow[key] = req.body[key];
       }
-    }
+    });
 
     knex('cards')
     .where('id', id)
