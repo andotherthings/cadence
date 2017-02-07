@@ -12,7 +12,7 @@ router.post('/cards_decks', (req, res, next) => {
   .then((newCardDeck) => {
     res.send(newCardDeck);
   })
-  .catch((err) => next(err));
+  .catch(err => next(err));
 });
 
 router.get('/cards_decks', (req, res, next) => {
@@ -25,7 +25,7 @@ router.get('/cards_decks', (req, res, next) => {
   .then((deck) => {
     res.send(camelizeKeys(deck));
   })
-  .catch((err) => next(err));
+  .catch(err => next(err));
 });
 
 router.delete('/cards_decks', (req, res, next) => {
@@ -38,7 +38,7 @@ router.delete('/cards_decks', (req, res, next) => {
   .then((deletedDeck) => {
     res.send(camelizeKeys(deletedDeck));
   })
-  .catch((err) => next(err));
+  .catch(err => next(err));
 });
 
 module.exports = router;

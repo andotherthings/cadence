@@ -12,9 +12,7 @@ router.post('/cards', (req, res, next) => {
   .then((newCard) => {
     res.send(camelizeKeys(newCard));
   })
-  .catch((err) => {
-    next(err);
-  });
+  .catch(err => next(err));
 });
 
 router.get('/cards/:id', (req, res, next) => {
@@ -30,9 +28,7 @@ router.get('/cards/:id', (req, res, next) => {
 
     res.send(camelizeKeys(row));
   })
-  .catch((err) => {
-    next(err);
-  });
+  .catch(err => next(err));
 });
 
 router.patch('/cards/:id', (req, res, next) => {
@@ -48,7 +44,7 @@ router.patch('/cards/:id', (req, res, next) => {
 
     const updateRow = {};
 
-    for (let key in req.body) {
+    for (const key in req.body) {
       if (['question', 'answer', 'resourceUrl'].indexOf(key) !== -1) {
         updateRow[key] = req.body[key];
       }
@@ -60,13 +56,9 @@ router.patch('/cards/:id', (req, res, next) => {
     .then((updatedRow) => {
       res.send(updatedRow);
     })
-    .catch((err) => {
-      next(err);
-    });
+    .catch(err => next(err));
   })
-  .catch((err) => {
-    next(err);
-  });
+  .catch(err => next(err));
 });
 
 router.delete('/cards/:id', (req, res, next) => {
@@ -88,9 +80,7 @@ router.delete('/cards/:id', (req, res, next) => {
       res.send(camelizeKeys(deletedRow));
     });
   })
-  .catch((err) => {
-    next(err);
-  });
+  .catch(err => next(err));
 });
 
 module.exports = router;
