@@ -25,7 +25,20 @@ router.get('/cards_decks', (req, res, next) => {
   .then((deck) => {
     res.send(camelizeKeys(deck));
   })
-  .catch((err) => next(err))
+  .catch((err) => next(err));
+});
+
+router.delete('/cards_decks', (req, res, next) => {
+  const { deckId } = req.body;
+
+  knex('cards_decks')
+  .where('deck_id', deckId)
+  .del()
+  .returning('*')
+  .then((deletedDeck) => {
+    res.send(camelizeKeys(deletedDeck));
+  })
+  .catch((err) => next(err));
 });
 
 module.exports = router;
