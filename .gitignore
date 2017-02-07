@@ -31,3 +31,4 @@ node_modules
 *.tgz
 dist/
 build/
+.DS_Store
