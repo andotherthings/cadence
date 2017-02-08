@@ -1,7 +1,7 @@
-exports.seed = (knex) => {
-  knex('decks').del()
+exports.seed = knex => {
+  return knex('decks').del()
     .then(() => {
-      knex('decks').insert([{
+      return knex('decks').insert([{
         id: 1,
         topic: 'Promises & Asynchronous Programming',
         created_at: new Date('2016-06-26 14:26:16 UTC'),

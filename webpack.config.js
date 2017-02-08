@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+
 const APP_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'build');
 
@@ -7,7 +8,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-hot-middleware/client',
-    APP_DIR + '/index.jsx',
+    `${APP_DIR}/index.jsx`,
   ],
   output: {
     filename: 'bundle.js',
@@ -15,7 +16,7 @@ module.exports = {
     publicPath: '/build/',
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [{
@@ -31,6 +32,6 @@ module.exports = {
     }],
   },
   resolve: {
-    extensions: ['.jsx', '.js']
+    extensions: ['.jsx', '.js'],
   },
-}
+};

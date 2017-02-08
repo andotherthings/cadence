@@ -1,7 +1,5 @@
-'use strict';
-
-exports.up = function(knex) {
-  return knex.schema.createTable('cards', (table) => {
+exports.up = knex => {
+  return knex.schema.createTable('cards', table => {
     table.increments();
     table.string('question').notNullable();
     table.string('answer').notNullable();
@@ -10,6 +8,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {
+exports.down = knex => {
   return knex.schema.dropTable('cards');
 };
