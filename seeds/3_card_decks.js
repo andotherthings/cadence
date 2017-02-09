@@ -1,7 +1,7 @@
-exports.seed = (knex) => {
-  knex('cards_decks').del()
+exports.seed = knex => {
+  return knex('cards_decks').del()
     .then(() => {
-      knex('cards_decks').insert([{
+      return knex('cards_decks').insert([{
         id: 1,
         deck_id: 1,
         card_id: 1,

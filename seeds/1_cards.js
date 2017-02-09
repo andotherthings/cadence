@@ -1,7 +1,7 @@
-exports.seed = (knex) => {
-  knex('cards').del()
+exports.seed = knex => {
+  return knex('cards').del()
     .then(() => {
-      knex('cards').insert([{
+      return knex('cards').insert([{
         id: 1,
         question: 'What is a Promise?',
         answer: 'A promise represents the value of an asynchronous operation that is not necessarily know at the time of execution.',
