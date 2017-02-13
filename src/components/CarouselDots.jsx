@@ -12,7 +12,7 @@ export default class CarouselDots extends React.Component {
     let sequence = '';
 
     for (let i = 0; i < this.props.dotCount; i++) {
-      i !== nextProps.currentDot ? sequence += '●' : sequence += '○';
+      i !== nextprops.currentDot ? sequence += '●' : sequence += '○';
     }
 
     this.setState({dotSequence: sequence})
