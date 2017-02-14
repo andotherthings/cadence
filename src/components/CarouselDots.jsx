@@ -5,17 +5,26 @@ export default class CarouselDots extends React.Component {
     super(props);
     this.state = {
       dotSequence: '',
-    };
+    }
+    this.createDotSequence = this.createDotSequence.bind(this);
   }
 
-  componentWillReceiveProps(nextProps){
+  createDotSequence(propsSource){
     let sequence = '';
 
     for (let i = 0; i < this.props.dotCount; i++) {
-      i !== nextprops.currentDot ? sequence += '●' : sequence += '○';
+      i !== propsSource.currentDot ? sequence += '●' : sequence += '○';
     }
 
     this.setState({dotSequence: sequence})
+  }
+
+  componentDidMount(nextProps, nextState){
+    this.createDotSequence(this.props);
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.createDotSequence(nextProps);
   }
 
   render () {
